@@ -185,6 +185,22 @@ export default class {
         return aside;
     }
 
+    makeOpenCloseAsideButton() {
+        const div = document.createDocumentFragment();
+
+        const cbx = document.createElement('input');
+        cbx.type = 'checkbox';
+        cbx.id = 'cbx';
+
+        const lb = document.createElement('label');
+        lb.innerHTML = 'Sort & Filter';
+        lb.className = 'cbxLabel';
+        lb.setAttribute('for', 'cbx');
+
+        div.append(cbx, lb);
+        return div;
+    }
+
     async get() {
         let res = [];
         if (this.cache.check('apireq')) res = this.cache.get('apireq');
@@ -209,6 +225,7 @@ export default class {
         main.innerHTML += this.makeCards(res);
 
         const aside = this.makeAside();
+        content.append( this.makeOpenCloseAsideButton() );
         content.append(main, aside);
 
         return content;

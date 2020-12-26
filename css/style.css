@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    --aside-bg-color: #88ccff;
+}
+
 html,
 body {
     width: 100%;
@@ -30,8 +34,6 @@ img {
 }
 
 .wrapper__main {
-    flex-shrink: 0;
-    flex-grow: 1;
     margin-left: 21.3%;
 }
 
@@ -39,9 +41,9 @@ img {
     position: fixed;
     top: 0;
     left: 0;
+    min-width: 300px;
     width: 21%;
     height: 100%;
-    background-color: #88ccff;
 }
 
 .cards {
@@ -101,6 +103,7 @@ img {
 
 .aside {
     padding: 10px;
+    background-color: var(--aside-bg-color);
 }
 
 .form {
@@ -138,4 +141,74 @@ img {
     border-radius: 3px;
     text-decoration: none;
     margin: 20px 10px;
+}
+
+@media (max-width: 1400px) {
+    .wrapper__main {
+        margin-left: 0;
+    }
+    .wrapper__aside {
+        left: -500px;
+        transition: left .25s linear;
+    }
+
+    #cbx {
+        position: fixed;
+        left: -999999px;
+        top: -999999px;
+    }
+
+    .cbxLabel {
+        position: fixed;
+        transform: rotate(90deg) translate(calc(50vh - 50%), 65px);
+        padding: 5px 10px;
+        background-color: var(--aside-bg-color);
+        color: white;
+        font-weight: 600;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        -ms-user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        z-index: 10;
+
+        transition: transform .3s ease;
+    }
+
+    .cbxLabel:hover {
+        cursor: pointer;
+        transform: rotate(90deg) translate(calc(50vh - 50%), 45px);
+    }
+
+    #cbx:checked ~ .cbxLabel {
+        transform: rotate(90deg) translate(calc(50vh - 50%), -255px);
+    }
+    #cbx:checked ~ .wrapper__aside {
+        left: 0;
+    }
+
+}
+
+@media (max-width: 750px) {
+    .card {
+        width: 33.333%;
+    }
+}
+
+@media (max-width: 550px) {
+    .card {
+        width: 50%;
+    }
+}
+
+@media (max-width: 400px) {
+    .card {
+        width: 100%;
+    }
+    #cbx:checked ~ .cbxLabel {
+        transform: rotate(90deg) translate(calc(50vh - 50%), -225px) scale(-1);
+        border: 1px solid #fff;
+        border-bottom: none;
+    }
 }
