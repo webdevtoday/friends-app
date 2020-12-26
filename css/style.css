@@ -160,7 +160,7 @@ img {
 
     .cbxLabel {
         position: fixed;
-        transform: rotate(90deg) translate(calc(50vh - 50%), 65px);
+        transform: rotate(90deg) translate(calc(50vh - 50%), 55px);
         padding: 5px 10px;
         background-color: var(--aside-bg-color);
         color: white;
