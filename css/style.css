@@ -52,7 +52,7 @@ fieldset {
 .wrapper__sidebar-opener {
     display: none;
     position: fixed;
-    top: 300px;
+    top: 305px;
     left: 0;
 }
 .wrapper__sidebar-opener-checkbox {
