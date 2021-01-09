@@ -1,4 +1,4 @@
-export function oops() {
+export function showErrorScreen() {
     const div = document.createElement('div');
     div.className = 'error-message';
     div.innerHTML = `
